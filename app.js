@@ -1,4 +1,5 @@
 var http = require('http');
+var path = require('path');
 var express = require('express');
 var bodyParser = require('body-parser');
 var morgan = require('morgan');
@@ -21,9 +22,12 @@ app.use(bodyParser.urlencoded({
 }));
 app.use(bodyParser.json());
 
+app.use('/bootstrap', express.static('./bower_components/bootstrap/dist'));
+app.use('/jquery', express.static('./bower_components/jquery/dist'));
+app.use(express.static('./public'));
+
 app.use('/', routes);
 
-app.use(express.static('./public'));
 
 // catch 404 (i.e., no route was hit) and forward to error handler
 app.use(function(req, res, next) {

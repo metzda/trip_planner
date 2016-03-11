@@ -10,5 +10,13 @@ var Hotel = models.Hotel,
 module.exports = router;
 
 router.get('/', function(req, res, next) {
-    res.send('Hello');
+    var hotels = Hotel.find().sort('name');
+    var restaurants = Restaurant.find().sort('name');
+    var activities = Activity.find().sort('name');
+    
+    Promise.all([hotels, restaurants, activities])
+        .then(function(data) {
+            res.render('index', {hotels: data[0], restaurants: data[1], activities: data[2]});
+        })
+        .catch(next);
 });

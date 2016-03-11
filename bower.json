@@ -1,0 +1,22 @@
+{
+  "name": "trip_planner",
+  "description": "",
+  "main": "app.js",
+  "authors": [
+    "Dan Metz <daniel.metz@gmail.com>"
+  ],
+  "license": "ISC",
+  "homepage": "https://github.com/metzda/trip_planner",
+  "moduleType": [],
+  "ignore": [
+    "**/.*",
+    "node_modules",
+    "bower_components",
+    "test",
+    "tests"
+  ],
+  "dependencies": {
+    "bootstrap": "^3.3.6",
+    "jquery": "^2.2.1"
+  }
+}
